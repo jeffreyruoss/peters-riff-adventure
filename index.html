@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Peter's Riff Adventure</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <script type="module" crossorigin src="./assets/index-B3oeyGd2.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-B1bPYi48.css">
+  </head>
+  <body>
+    <canvas id="view"></canvas>
+
+    <div id="hud" class="hidden">
+      <div class="top">
+        <div class="panel health-panel">
+          <div class="label">VITALITY</div>
+          <div class="bar"><div id="health-fill"></div></div>
+        </div>
+        <div class="panel center-panel">
+          <div id="wave">WAVE 1</div>
+          <div id="kills">0 SOULS</div>
+        </div>
+        <div class="panel score-panel">
+          <div id="score">0</div>
+          <div class="label">SCORE</div>
+        </div>
+      </div>
+
+      <div class="combo-wrap">
+        <div id="multiplier">1x</div>
+        <div id="combo">0 NOTE STREAK</div>
+      </div>
+
+      <div id="judge"></div>
+      <div id="flash-damage"></div>
+    </div>
+
+    <div id="menu" class="overlay">
+      <h1>PETER&rsquo;S<span>RIFF ADVENTURE</span></h1>
+      <p class="tag">A side-scrolling rhythm survival. The song is your weapon.</p>
+      <div class="keys">
+        <span class="k k0">A</span><span class="k k1">S</span><span class="k k2">D</span>
+        <span class="k k3">F</span><span class="k k4">G</span><span class="k k5">H</span>
+      </div>
+      <ul class="rules">
+        <li>Hit the fret keys as gems cross the strike line.</li>
+        <li>Every clean note fires a riff-bolt at the nearest ghoul.</li>
+        <li>Miss and they close in. Let them reach you and you bleed.</li>
+      </ul>
+      <button id="start-btn">START THE SET</button>
+      <p class="hint">Headphones recommended · press <b>P</b> to pause</p>
+    </div>
+
+    <div id="gameover" class="overlay hidden">
+      <h2>SET OVER</h2>
+      <div class="stats">
+        <div><span id="go-score">0</span><em>SCORE</em></div>
+        <div><span id="go-kills">0</span><em>SOULS REAPED</em></div>
+        <div><span id="go-streak">0</span><em>BEST STREAK</em></div>
+        <div><span id="go-acc">0%</span><em>ACCURACY</em></div>
+      </div>
+      <button id="retry-btn">PLAY AGAIN</button>
+    </div>
+
+    <div id="paused" class="overlay hidden">
+      <h2>PAUSED</h2>
+      <p class="tag">Press <b>P</b> to keep playing</p>
+    </div>
+
+  </body>
+</html>
