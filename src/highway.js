@@ -1,8 +1,10 @@
 import * as THREE from 'three';
 import { LANE_COLORS } from './entities.js';
 
-export const LANES = 5;
-export const LANE_W = 0.85;
+export const LANES = 6;
+// Narrowed from 0.85 when the board went from 5 frets to 6, so the whole
+// highway stays inside the frame even on a 4:3 window.
+export const LANE_W = 0.72;
 export const STRIKE_Z = -3.4; // where notes must be hit
 export const SPAWN_Z = -16; // where notes appear
 export const APPROACH = 1.5; // seconds from spawn to strike line
@@ -13,8 +15,8 @@ export const laneX = (lane) => (lane - (LANES - 1) / 2) * LANE_W;
 // Judgement windows in seconds.
 export const WINDOWS = { perfect: 0.045, great: 0.085, good: 0.13 };
 
-const NOTE_GEO = new THREE.CylinderGeometry(0.34, 0.34, 0.16, 10);
-const RIM_GEO = new THREE.CylinderGeometry(0.42, 0.42, 0.1, 10);
+const NOTE_GEO = new THREE.CylinderGeometry(0.29, 0.29, 0.16, 10);
+const RIM_GEO = new THREE.CylinderGeometry(0.355, 0.355, 0.1, 10);
 
 export function buildHighway() {
   const scene = new THREE.Scene();
@@ -95,7 +97,7 @@ export function buildHighway() {
   const pads = [];
   for (let i = 0; i < LANES; i++) {
     const pad = new THREE.Mesh(
-      new THREE.CylinderGeometry(0.4, 0.44, 0.06, 10),
+      new THREE.CylinderGeometry(0.34, 0.375, 0.06, 10),
       new THREE.MeshStandardMaterial({
         color: LANE_COLORS[i],
         emissive: LANE_COLORS[i],

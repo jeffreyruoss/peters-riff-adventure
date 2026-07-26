@@ -24,7 +24,7 @@ into CI instead, run `gh auth refresh -s workflow` and add
 
 | Key | Action |
 | --- | --- |
-| `A S D F G` | Frets (also `1–5`, or `H J K L ;`) |
+| `A S D F G H` | Frets — six of them (also `1–6`) |
 | `Enter` / `Space` | Start / restart |
 | `P` | Pause |
 
@@ -47,9 +47,9 @@ positions on the board are derived from `audio.currentTime` rather than frame
 time — so the gems stay locked to the beat even if the framerate drops.
 
 The chart itself is generated, not authored: each bar picks a sixteenth-grid
-rhythm (unlocked by wave) and walks a pentatonic phrase. Lane = scale degree % 5,
-which is why the fret pattern rises and falls with the melody instead of feeling
-random.
+rhythm (unlocked by wave) and walks a pentatonic phrase. Lane = scale degree % 6
+(one per string), which is why the fret pattern rises and falls with the melody
+instead of feeling random.
 
 ### Source map
 

@@ -4,6 +4,7 @@
   --l2: #ffd93d;
   --l3: #3aa4ff;
   --l4: #ff8a1f;
+  --l5: #b45cff;
   --ink: #f4ecff;
 }
 
@@ -238,6 +239,8 @@ h2 {
 
 .keys {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 10px;
   margin-top: 4px;
 }
@@ -259,6 +262,7 @@ h2 {
 .k2 { background: var(--l2); color: #2a2103; }
 .k3 { background: var(--l3); color: #04182c; }
 .k4 { background: var(--l4); color: #2a1403; }
+.k5 { background: var(--l5); color: #1c0533; }
 
 .rules {
   list-style: none;
@@ -328,4 +332,7 @@ button:hover {
   #multiplier { font-size: 40px; }
   .health-panel { min-width: 150px; }
   .top { padding: 14px 16px; }
+  /* Six frets no longer fit at full size on a phone. */
+  .k { width: 40px; height: 40px; font-size: 17px; }
+  .keys { gap: 7px; }
 }

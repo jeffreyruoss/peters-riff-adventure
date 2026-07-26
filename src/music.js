@@ -8,7 +8,7 @@ export const BAR = BEAT * 4;
 export const STEP = BEAT / 4; // sixteenth
 const LOOKAHEAD = 2.6; // seconds of chart generated ahead of the audio clock
 
-// E minor pentatonic, two octaves. Lane = degree % 5, so the melody line and
+// E minor pentatonic, two octaves. Lane = degree % 6, so the melody line and
 // the fret lanes rise and fall together.
 const PENT = [0, 3, 5, 7, 10, 12, 15, 17, 19, 22];
 const ROOT = 52; // E3
@@ -33,9 +33,10 @@ const RHYTHMS = [
   { tier: 3, slots: [0, 1, 2, 3, 4, 6, 8, 9, 10, 11, 12, 14] },
 ];
 
-// Melodic contours over the pentatonic degrees.
+// Melodic contours over the pentatonic degrees. Every phrase reaches degree 5
+// at least once, otherwise the sixth fret would sit idle for whole passages.
 const PHRASES = [
-  [0, 1, 2, 1, 3, 2, 1, 0, 2, 3, 4, 3, 2, 1, 0, 1],
+  [0, 1, 2, 1, 3, 2, 1, 0, 2, 3, 4, 3, 5, 4, 2, 1],
   [4, 3, 2, 3, 1, 2, 0, 1, 2, 1, 3, 4, 5, 4, 3, 2],
   [0, 2, 4, 2, 5, 4, 2, 0, 1, 3, 5, 3, 6, 5, 3, 1],
   [5, 4, 5, 6, 4, 3, 4, 2, 3, 2, 1, 2, 0, 1, 2, 3],
@@ -161,13 +162,13 @@ export class Music {
     rhythm.slots.forEach((slot, idx) => {
       const t = t0 + slot * STEP;
       const degree = phrase[(bar * 4 + idx) % phrase.length];
-      const lane = degree % 5;
+      const lane = degree % 6;
       const midi = ROOT + PENT[degree % PENT.length];
       const note = { time: t, lane, midi, judged: false, chordWith: null };
       this.pending.push(note);
 
       if (this.rand() < chordChance && slot % 4 === 0) {
-        const lane2 = (lane + 2) % 5;
+        const lane2 = (lane + 2) % 6;
         const partner = {
           time: t,
           lane: lane2,

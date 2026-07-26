@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 
-export const LANE_COLORS = ['#3df07a', '#ff3b52', '#ffd93d', '#3aa4ff', '#ff8a1f'];
+export const LANE_COLORS = ['#3df07a', '#ff3b52', '#ffd93d', '#3aa4ff', '#ff8a1f', '#b45cff'];
 
 const box = (w, h, d, mat) => new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
 

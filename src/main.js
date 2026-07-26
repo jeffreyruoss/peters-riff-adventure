@@ -117,7 +117,7 @@ const state = {
   enemies: [],
   nextSpawnBar: 2,
   lastBeat: -1,
-  laneHeld: [false, false, false, false, false],
+  laneHeld: Array(LANES).fill(false),
 };
 
 const el = {
@@ -137,10 +137,11 @@ const el = {
 
 // ---------------------------------------------------------------- input
 
+// Six frets, so the home row now runs A..H and the third (right-hand) binding
+// is gone — it started on H, which the primary row has claimed.
 const KEY_LANE = {
-  KeyA: 0, KeyS: 1, KeyD: 2, KeyF: 3, KeyG: 4,
-  Digit1: 0, Digit2: 1, Digit3: 2, Digit4: 3, Digit5: 4,
-  KeyH: 0, KeyJ: 1, KeyK: 2, KeyL: 3, Semicolon: 4,
+  KeyA: 0, KeyS: 1, KeyD: 2, KeyF: 3, KeyG: 4, KeyH: 5,
+  Digit1: 0, Digit2: 1, Digit3: 2, Digit4: 3, Digit5: 4, Digit6: 5,
 };
 
 window.addEventListener('keydown', (e) => {
